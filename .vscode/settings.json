@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "glew.h": "c"
+        "glew.h": "c",
+        "stdio.h": "c"
     }
 }

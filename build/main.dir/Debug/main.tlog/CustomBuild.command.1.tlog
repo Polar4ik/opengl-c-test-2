@@ -1,6 +1,6 @@
-^D:\ALL PROJECTS\COPENGLTEST3\CMAKELISTS.TXT
+^D:\ALL PROJECTS\C_OPENGL_TEST_3\CMAKELISTS.TXT
 setlocal
-D:\CMake\bin\cmake.exe "-SD:/All Projects/copengltest3" "-BD:/All Projects/copengltest3/build" --check-stamp-file "D:/All Projects/copengltest3/build/CMakeFiles/generate.stamp"
+D:\CMake\bin\cmake.exe "-SD:/All Projects/c_opengl_test_3" "-BD:/All Projects/c_opengl_test_3/build" --check-stamp-file "D:/All Projects/c_opengl_test_3/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

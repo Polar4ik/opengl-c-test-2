@@ -1,3 +1,3 @@
-D:/All Projects/copengltest3/build/CMakeFiles/main.dir
-D:/All Projects/copengltest3/build/CMakeFiles/ALL_BUILD.dir
-D:/All Projects/copengltest3/build/CMakeFiles/ZERO_CHECK.dir
+D:/All Projects/c_opengl_test_3/build/CMakeFiles/main.dir
+D:/All Projects/c_opengl_test_3/build/CMakeFiles/ALL_BUILD.dir
+D:/All Projects/c_opengl_test_3/build/CMakeFiles/ZERO_CHECK.dir

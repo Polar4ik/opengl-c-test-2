@@ -1,6 +1,6 @@
-^D:\ALL PROJECTS\COPENGLTEST3\BUILD\CMAKEFILES\6BB7D3AC5D6A13EA9751B071FE02130C\GENERATE.STAMP.RULE
+^D:\ALL PROJECTS\C_OPENGL_TEST_3\BUILD\CMAKEFILES\75BFF32D8FFB62D6B26B0DC7AC63AFE4\GENERATE.STAMP.RULE
 setlocal
-D:\CMake\bin\cmake.exe "-SD:/All Projects/copengltest3" "-BD:/All Projects/copengltest3/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/All Projects/copengltest3/build/OpenGLTest.sln"
+D:\CMake\bin\cmake.exe "-SD:/All Projects/c_opengl_test_3" "-BD:/All Projects/c_opengl_test_3/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/All Projects/c_opengl_test_3/build/OpenGLTest.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

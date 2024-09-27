@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\All Projects\copengltest3\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\All Projects\c_opengl_test_3\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\All Projects\copengltest3\build\Debug\main.exe</FullPath>
+      <FullPath>D:\All Projects\c_opengl_test_3\build\Debug\main.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\All Projects\copengltest3\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>D:\All Projects\c_opengl_test_3\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
