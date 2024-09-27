@@ -11,4 +11,4 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/lib)
 
 add_executable(main src/main.c)
 target_include_directories(main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/libs/include)
-target_link_libraries(main glew32s glfw3 opengl32)
+target_link_libraries(main glad glfw3 opengl32)

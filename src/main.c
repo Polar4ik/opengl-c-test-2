@@ -1,18 +1,17 @@
-#define GLEW_STATIC
-
-#include<GL/glew.h>
+#include<glad/glad.h>
 #include<GLFW/glfw3.h>
+
 #include<stdio.h>
 #include<stdlib.h>
 
 char* loadShaderSource(const char* filename) {
-    FILE* file = fopen(filename, "r");
+    FILE* file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Failed to open file: %s\n", filename);
         return NULL;
     }
 
-    fseek(file, 0L, SEEK_END);
+    fseek(file, 0, SEEK_END);
     long length = ftell(file);
     rewind(file);
 
@@ -53,7 +52,7 @@ void checkProgramLinking(unsigned int program) {
 
 int main() {
     if (!glfwInit()) {
-        printf("Failed to init GLFW");
+        printf("Failed to init GLFW\n");
         return -1;
     }
 
@@ -65,21 +64,23 @@ int main() {
     }
     glfwMakeContextCurrent(window);
     
-    if (glewInit() != GLEW_OK) {
-        printf("GLEW initialization error\n");
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        printf("Failed to initialize GLAD\n");
         return -1;
     }
 
     unsigned int VAO, VBO, EBO;
 
     float vecrtices[] = {
-         0.0f, 0.5f, 0.0f,
-        -0.5f, -0.5f, 0.0f,
+        -0.5f, 0.5f, 0.0f,
+         0.5f, 0.5f, 0.0f,
          0.5f, -0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f,
     };
 
     unsigned indices[] = {
-        0, 1, 2
+        0, 1, 2,
+        2, 3, 0,
     };
 
     glGenVertexArrays(1, &VAO);
@@ -99,17 +100,16 @@ int main() {
 
     glBindVertexArray(0);
 
-    const char* vertex_shader_code = "#version 330 core\n"
-        "layout (location = 0) in vec3 aPos;\n"
-        "void main() {\n"
-        "   gl_Position = vec4(aPos, 1.0);\n"
-        "}\0";
+    char *vertex_shader_code = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/vertex.glsl");
+    char *fragment_shader_code = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/fragment.glsl");
 
-    const char* fragment_shader_code = "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main() {\n"
-        "   FragColor = vec4(1.0, 1.0, 1.0, 1.0f);\n"
-        "}\0";
+    printf("VERTEX SHADER CODE:\n%s\n\n", vertex_shader_code);
+    printf("FRAGMENT SHADER CODE:\n%s\n\n", fragment_shader_code);
+
+    if (!vertex_shader_code || !fragment_shader_code){
+        printf("Couldnt load shaders");
+        return -1;
+    }
 
     unsigned int vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex_shader, 1, &vertex_shader_code, NULL);
@@ -127,17 +127,20 @@ int main() {
     glLinkProgram(shader_program);
     checkProgramLinking(shader_program);
 
+    free(vertex_shader_code);
+    free(fragment_shader_code);
+
     glDeleteShader(vertex_shader);
     glDeleteShader(fragment_shader);
 
     while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
         glClearColor(0.0f, 0.74f, 1.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shader_program);
 
         glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
 

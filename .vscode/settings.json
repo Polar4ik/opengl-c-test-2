@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "glew.h": "c",
-        "stdio.h": "c"
-    }
+        "glad.h": "c",
+        "stdio.h": "c",
+    },
+    "cmake.generator": "Visual Studio 17 2022",
 }
