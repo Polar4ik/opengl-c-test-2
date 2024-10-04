@@ -9,10 +9,35 @@ typedef struct {
     unsigned int indices[36];
 } Voxel;
 
-extern const float voxel_vertices[8][3];
-extern const float voxel_normals[6][3];
-extern const unsigned int voxel_indices[36];
+const float voxel_vertices[8][3] = {
+    {0.0f, 0.0f, 0.0f},
+    {1.0f, 0.0f, 0.0f},
+    {1.0f, 1.0f, 0.0f},
+    {0.0f, 1.0f, 0.0f},
+    {0.0f, 0.0f, 1.0f},
+    {1.0f, 0.0f, 1.0f},
+    {1.0f, 1.0f, 1.0f},
+    {0.0f, 1.0f, 1.0f}
+};
 
-Voxel create_voxel(void);
+const float voxel_normals[6][3] = {
+    { 0.0f,  0.0f, -1.0f},
+    { 0.0f,  0.0f,  1.0f},
+    { 1.0f,  0.0f,  0.0f},
+    {-1.0f,  0.0f,  0.0f},
+    { 0.0f,  1.0f,  0.0f},
+    { 0.0f, -1.0f,  0.0f}
+};
+
+const unsigned int voxel_indices[36] = {
+    0, 1, 2, 0, 2, 3,  
+    4, 5, 6, 4, 6, 7,
+    1, 5, 6, 1, 6, 2,
+    0, 4, 7, 0, 7, 3,
+    3, 2, 6, 3, 6, 7,
+    0, 1, 5, 0, 5, 4
+};
+
+Voxel create_voxel();
 
 #endif
