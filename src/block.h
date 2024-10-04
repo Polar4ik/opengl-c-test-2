@@ -7,14 +7,14 @@
 typedef enum {
     BLOCK_AIR = 0,
     BLOCK_GRASS,
-} BlockTypes;
+} BlockType;
 
 typedef struct {
     Voxel voxel;
     vec3 block_position;
-    BlockTypes block_type; 
+    BlockType block_type; 
 } Block;
 
-Block create_block(vec3 position, BlockTypes type);
+Block create_block(vec3 position, BlockType type);
 
 #endif

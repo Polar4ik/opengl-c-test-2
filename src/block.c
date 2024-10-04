@@ -1,6 +1,6 @@
 #include "block.h"
 
-Block create_block(vec3 position, BlockTypes type) {
+Block create_block(vec3 position, BlockType type) {
     Block block;
 
     block.voxel = create_voxel();

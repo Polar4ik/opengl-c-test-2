@@ -2,6 +2,8 @@
     "files.associations": {
         "glad.h": "c",
         "stdio.h": "c",
+        "cglm.h": "c",
+        "glfw3.h": "c"
     },
     "cmake.generator": "Visual Studio 17 2022",
 }
