@@ -3,7 +3,11 @@
         "glad.h": "c",
         "stdio.h": "c",
         "cglm.h": "c",
-        "glfw3.h": "c"
+        "glfw3.h": "c",
+        "chunk.h": "c",
+        "block.h": "c",
+        "voxel.h": "c",
+        "block_renderer.h": "c"
     },
     "cmake.generator": "Visual Studio 17 2022",
 }
