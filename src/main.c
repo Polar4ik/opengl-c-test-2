@@ -204,35 +204,35 @@ int main() {
 
     glBindVertexArray(0);
 
-    char *vertex_shader_code = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/vertex.glsl");
-    char *fragment_shader_code = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/fragment.glsl");
+    char *vertexShaderCode = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/vertex.glsl");
+    char *fragmentShaderCode = loadShaderSource("D:/All Projects/c_opengl_test_3/src/shaders/fragment.glsl");
 
-    if (!vertex_shader_code || !fragment_shader_code) {
+    if (!vertexShaderCode || !fragmentShaderCode) {
         printf("Could not load shaders\n");
         return -1;
     }
 
-    unsigned int vertex_shader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertex_shader, 1, &vertex_shader_code, NULL);
-    glCompileShader(vertex_shader);
-    checkShaderCompilation(vertex_shader);
+    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader, 1, &vertexShaderCode, NULL);
+    glCompileShader(vertexShader);
+    checkShaderCompilation(vertexShader);
 
-    unsigned int fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragment_shader, 1, &fragment_shader_code, NULL);
-    glCompileShader(fragment_shader);
-    checkShaderCompilation(fragment_shader);
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &fragmentShaderCode, NULL);
+    glCompileShader(fragmentShader);
+    checkShaderCompilation(fragmentShader);
 
-    unsigned int shader_program = glCreateProgram();
-    glAttachShader(shader_program, vertex_shader);
-    glAttachShader(shader_program, fragment_shader);
-    glLinkProgram(shader_program);
-    checkProgramLinking(shader_program);
+    unsigned int shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
+    checkProgramLinking(shaderProgram);
 
-    free(vertex_shader_code);
-    free(fragment_shader_code);
+    free(vertexShaderCode);
+    free(fragmentShaderCode);
 
-    glDeleteShader(vertex_shader);
-    glDeleteShader(fragment_shader);
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
 
     mat4 projection;
     glm_perspective(glm_rad(45.0f), 800.0f / 600.0f, 0.1f, 100.0f, projection);
@@ -253,12 +253,12 @@ int main() {
 
         glm_rotate_y(model, cubeAng, model);
 
-        glUseProgram(shader_program);
+        glUseProgram(shaderProgram);
         
-        unsigned int viewLoc = glGetUniformLocation(shader_program, "view");
-        unsigned int projLoc = glGetUniformLocation(shader_program, "projection");
-        unsigned int modelLoc = glGetUniformLocation(shader_program, "model");
-        unsigned int lightPosLoc = glGetUniformLocation(shader_program, "lightPos");
+        unsigned int viewLoc = glGetUniformLocation(shaderProgram, "view");
+        unsigned int projLoc = glGetUniformLocation(shaderProgram, "projection");
+        unsigned int modelLoc = glGetUniformLocation(shaderProgram, "model");
+        unsigned int lightPosLoc = glGetUniformLocation(shaderProgram, "lightPos");
 
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, (const GLfloat*)model);
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, (const GLfloat*)view);
@@ -276,7 +276,7 @@ int main() {
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
 
-    glDeleteProgram(shader_program);
+    glDeleteProgram(shaderProgram);
 
     glfwDestroyWindow(window);
     glfwTerminate();
